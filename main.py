@@ -65,7 +65,7 @@ def show_webcam(mirror=False):
 
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
+        flag = False
         size = gray.shape
 
         # обнаружить лица в кадре серого
@@ -73,9 +73,9 @@ def show_webcam(mirror=False):
 
         # проверьте, было ли обнаружено лицо, и если да, нарисуйте
         # количество граней на раме
-        # if len(rects) > 0:
-        #     text = "{} face(s) found".format(len(rects))
-        #     cv2.putText(frame, text, (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+        if len(rects) < 1:
+            text = "Don't cheat!"
+            cv2.putText(frame, text, (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 5, (0, 0, 255), 5)
 
         # цикл для лиц
         for rect in rects:
@@ -160,12 +160,12 @@ def show_webcam(mirror=False):
             #print("Расстояние между глазами:" , distance(shape[36], shape[45]))
             #print("Растояние между точками p1 and p2", distance(p1, p2))
             #print("otnoshenie:", distance(shape[36], shape[45]) / distance(p1, p2))
-            cv2.line(frame, p1, p2, (0, 180, 0), 2)
-            cv2.line(frame, p3, p4, (0, 180, 0), 2)
-            cv2.line(frame, p5, p6, (0, 180, 0), 2)
-            cv2.line(frame, p7, p8, (0, 180, 0), 2)
-            cv2.line(frame, p9, p10, (0, 180, 0), 2)
-            cv2.line(frame, p11, p12, (0, 180, 0), 2)
+            # cv2.line(frame, p1, p2, (0, 180, 0), 2)
+            # cv2.line(frame, p3, p4, (0, 180, 0), 2)
+            # cv2.line(frame, p5, p6, (0, 180, 0), 2)
+            # cv2.line(frame, p7, p8, (0, 180, 0), 2)
+            # cv2.line(frame, p9, p10, (0, 180, 0), 2)
+            # cv2.line(frame, p11, p12, (0, 180, 0), 2)
             #print(p1, p2)
 
 
@@ -192,3 +192,4 @@ def diplom_project():
 if __name__ == '__main__':
     MODEL = 'shape_predictor_68_face_landmarks.dat'
     diplom_project()
+    
